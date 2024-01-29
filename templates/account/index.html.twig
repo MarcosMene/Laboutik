@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Mon compte - LabouTik -
+{% endblock %}
+
+{% block content %}
+  <h1>Mon compte</h1>
+  Bienvenue {{ app.user.firstname }} dans votre compte.<hr />
+  {% if is_granted('ROLE_ADMIN') %}
+    <small><a href="/admin">Accéder à la page administration</a></small>
+  {% endif %}
+
+  <hr />
+  <div class="row">
+    <div class="col-md-4">
+      <div class="account-item text-center">
+        <img src="{{ asset('assets/img/password.png') }}" alt="Modifier mon mot de passe" /><br />
+        <a href="{{ path('account_password') }}">Modifier mon mot de passe</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="account-item text-center">
+        <img src="{{ asset('assets/img/address.png') }}" alt="Gérer mes adresses" /><br />
+        <a href="{{ path('account_address') }}">Gérer mes adresses</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="account-item text-center">
+        <img src="{{ asset('assets/img/purchase.png') }}" alt="Mes commandes" /><br />
+        <a href="{{ path('account_order') }}">Mes commandes</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

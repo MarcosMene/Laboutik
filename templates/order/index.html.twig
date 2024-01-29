@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Valider ma commande - LabouTik -
+{% endblock %}
+
+{% block content %}
+  <h2>Je passe ma commande</h2>
+  <p>Choississez vos préferences avant de passer votre commande sur LabouTik</p>
+  <hr />
+  <div class="row">
+    <div class="col-md-6">
+      {% set formHtml %}
+        {{ form_start(form, { action: path('order_recap') }) }}
+        {{ form_label(form.addresses, 'Choisissez votre adresse de livraison') }}
+        <a href="{{ path('account_address_add') }}" class="my-2">Ajouter une nouvelle adresse</a>
+        {{ form_end(form) }}
+      {% endset %}
+      {{ formHtml|replace({ '[br]': '<br/>' })|raw }}
+    </div>
+    <div class="col-md-6">
+      <div class="text-center">
+        <b>Récap de ma commande</b><br />
+        <p>Retrouvez le récapitulatif de vos produits.</p>
+      </div>
+      <div class="order-summary">
+        {% for product in cart %}
+          <div class="row mt-2">
+            <div class="col-2">
+              <img src="/uploads/attachments/{{ product.product.illustration }}" alt="{{ product.product.name }}" height="50px" />
+            </div>
+            <div class="col-8 my-auto">
+              {{ product.product.name }}<br />
+              <small>{{ product.product.subtitle }}</small>
+            </div>
+            <div class="col-2 my-auto">x {{ product.quantity }}</div>
+          </div>
+          <hr />
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Nos contacter - LabouTik -
+{% endblock %}
+
+{% block content %}
+  <h2>Nous contacter</h2>
+  <p>Prenez contact avec notre équipe, nous vous répondrons dans les meilleurs délais.</p>
+  {% for message in app.flashes('notice') %}
+    <div>{{ message|raw }}</div>
+  {% endfor %}
+  <div class="row">
+    <div class="col-md-8">{{ form(form) }}</div>
+    <hr />
+    <div class="col-md-4">
+      <h2>LabouTik</h2>
+      <p>
+        <strong>Notre adresse</strong>
+      </p>23 Rue Johan Pillar <br />
+      75019 Paris<br />
+      01 43 34 44 44<br />
+
+      contact@LabouTik.fr
+    </div>
+  </div>
+{% endblock %}

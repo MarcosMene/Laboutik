@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Erreur de paiement - LabouTik -
+{% endblock %}
+
+{% block content %}
+  <h2>Erreur de paiement</h2>
+  <p>
+    Bonjour <strong>{{ order.user.firstname }} {{ order.user.lastname }}</strong>,
+  </p>
+  <p>
+    Il semblet que votre paiement est échoué pour votre commande número <strong>{{ order.reference }}</strong>.<br />
+    Une confirmation d'erreur vient de vous être par email à l'adresse <strong>{{ order.user.email }}</strong>.
+  </p>
+  <hr />
+  <p class="text-center">
+    <a href="{{ path('order') }}" class="btn btn-success">Réessayer le paiment</a>
+  </p>
+{% endblock %}

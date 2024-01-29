@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block carousel %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="text-center">
+    <h2>Nos meilleurs ventes</h2>
+    <p>Découvrez les articles le plus vendus.</p>
+  </div>
+  <div class="row justify-content-center">
+    {% for product in products %}
+      <div class="col-md-3">
+        {% include 'product/single_product.html.twig' %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="text-center">
+    <a href="/nos-produits" class="btn btn-primary mt-4">Voir nos produits</a>
+  </div>
+
+  <!-- /.row -->
+
+  <!-- START THE FEATURETTES -->
+
+  <hr class="featurette-divider" />
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">Toujours à votre service <span class="text-muted">avec des produit de qualité 100% français.</span></h2>
+      <p class="lead mt-3">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="{{ asset('assets/img/photo01.jpg') }}" class="img-fluid" alt="interieur de la boutique" />
+    </div>
+  </div>
+
+  <hr class="featurette-divider" />
+
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading">Plusieurs produits <span class="text-muted">disponible dans plusieurs boutiques en France.</span></h2>
+      <p class="lead mt-3">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="{{ asset('assets/img/photo02.jpg') }}" class="img-fluid" alt="une femme qui tient une bluse" />
+    </div>
+  </div>
+
+  <!-- /END THE FEATURETTES -->
+{% endblock %}
